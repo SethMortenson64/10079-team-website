@@ -4,12 +4,12 @@ import "./globals.css";
 import { SiInstagram } from "@icons-pack/react-simple-icons";
 
 const inter = Inter({
-  variable: "--font-sans",
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
 const roboto = Roboto({
-  variable: "--font-heading",
+  variable: "--font-roboto",
   subsets: ["latin"],
 });
 
@@ -61,15 +61,13 @@ function NavBar() {
           <span className={`${spanClass} -translate-y-2 -rotate-45`}></span>
         </div>
         <nav className="flex items-center gap-6">
-          <NavItem title="Home" url="/" />
           <NavItem title="About Us">
             <NavChild title="Our Team" url="/team" />
             <NavChild title="Calendar & Schedule" url="/calendar" />
-            <NavChild title="Organization Chart (PDF)" url="#" />
-            <NavChild title="Baseline Schedule (PDF)" url="#" />
           </NavItem>
+          <NavItem title="Sponsors" url="/sponsors" />
+          <NavItem title="About FIRST®" url="/about-first" />
           <NavItem title="Media">
-            <NavChild title="Events & Results" url="/events" />
             <NavChild title="Newsletters" url="/newsletters" />
           </NavItem>
           <NavItem title="Resources" url="/resources" />

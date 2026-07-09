@@ -9,6 +9,11 @@
   --color-hero-subtitle: #ffffffb3;
 }
 
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-roboto);
+}
+
 @utility sponsors-animation {
   &::before,
   &::after {

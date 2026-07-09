@@ -1,3 +1,5 @@
+import { Title } from "@/components";
+
 type MilestoneBase = {
   title: string;
   subtitle: string;
@@ -33,7 +35,7 @@ const MILESTONES: Milestone[] = [
     start: new Date(2026, 0, 10),
   },
   {
-    title: "PNW District Championship",
+    title: "2026 PNW District Championship",
     subtitle: "District Championship Event",
     start: new Date(2026, 3, 8),
     end: new Date(2026, 3, 11),
@@ -70,16 +72,14 @@ export default function Calendar() {
 
   return (
     <>
-      <section className="pt-16 text-center mb-12">
-        <h1 className="text-3xl font-bold">Team Calendar</h1>
-        <p>
-          All official meetings, build sessions, and competition dates in this
-          calendar.
-        </p>
-      </section>
+      <Title
+        title="Team Calendar"
+        subtitle="All official meetings, build sessions, and competition dates in this
+        calendar."
+      />
       <section className="mb-12">
         <h2 className="font-heading text-4xl font-bold text-center mb-8">
-          Season Milestones
+          Upcoming Events
         </h2>
         <div className={milestonesClass}>
           {MILESTONES.filter((milestone) =>
@@ -143,7 +143,7 @@ export function Milestone({ milestone }: { milestone: Milestone }) {
         <h3 className="font-heading text-xl mb-2 uppercase">
           {milestone.title}
         </h3>
-        <p className="mb-2 leading-[1.4] text-neutral-400">
+        <p className="mb-2 leading-snug text-neutral-400">
           {milestone.subtitle}
         </p>
         <span className="text-xs font-bold text-near-black bg-[#f1c40f] py-1 px-2.5 rounded-sm inline-block">

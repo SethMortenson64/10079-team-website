@@ -8,6 +8,7 @@ import logo from "@/img/logo.png";
 import nasa from "@/img/nasa.png";
 import robot from "@/img/robot.png";
 import team from "@/img/team.jpg";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -24,7 +25,7 @@ function TeamSection() {
     "text-4xl font-black text-accent-blue font-heading max-[900px]:text-3xl";
 
   return (
-    <section className="bg-near-black mt-12 p-12 rounded-2xl border border-border-color shadow-xl flex items-center gap-8">
+    <section className="bg-near-black mt-12 p-12 rounded-2xl border border-border-color shadow-xl flex items-center gap-8 max-[900px]:flex-col max-[900px]:p-8">
       <div className="flex-1 text-center">
         <h1 className={`${teamNameClass} mb-4`}>Team #10079</h1>
         <Image
@@ -40,12 +41,12 @@ function TeamSection() {
           alt="2025 competition robot"
           className="w-full rounded-xl block"
         />
-        <a
+        <Link
           href="/"
           className="inline-block mt-6 text-accent-blue text-2xl font-bold no-underline transition-transform duration-300 ease-in-out hover:scale-105"
         >
           2026 Robot
-        </a>
+        </Link>
       </div>
     </section>
   );
@@ -74,7 +75,7 @@ function SponsorsSection() {
     <section className="py-16 text-center">
       <SectionTitle>SPONSORS</SectionTitle>
       <div className="bg-near-black py-8 rounded-2xl border border-border-color shadow-xl overflow-hidden relative w-full hover:[animation-play-state:paused] sponsors-animation">
-        <div className="flex w-[2500px] animate-[scroll_15s_linear_infinite] [animation-play-state:paused]">
+        <div className="flex w-625 animate-[scroll_15s_linear_infinite] [animation-play-state:paused]">
           <Sponsor name="NASA" url="https://www.nasa.gov/" img={nasa} />
           <Sponsor name="Dunn Lumber" url="#" img={dunnLumber} />
           <Sponsor name="Boeing" url="https://www.boeing.com/" img={boeing} />
@@ -101,13 +102,13 @@ function Sponsor({
 }) {
   return (
     <div className="w-62 px-4 flex items-center justify-center">
-      <a href={url}>
+      <Link href={url}>
         <Image
           src={img}
           alt={name}
           className="max-w-37 h-auto opacity-70 transition-all duration-300 ease-in-out hover:opacity-100"
         />
-      </a>
+      </Link>
     </div>
   );
 }

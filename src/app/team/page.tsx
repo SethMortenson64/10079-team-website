@@ -1,8 +1,15 @@
 import Image from "next/image";
 import team from "@/img/el-equipo.jpg";
+import Link from "next/link";
+import React from "react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Team",
+};
 
 export default function Team() {
-  // TODO: Make it so that you can hover over a team member in the photo to see their name and role
+  // TODO: Make it so that you can hover over a team member in the photo to see their name and info
 
   return (
     <>
@@ -18,53 +25,100 @@ export default function Team() {
         className="mb-12 rounded-2xl mx-auto shadow-lg"
       />
       <section className="bg-near-black p-12 rounded-2xl space-y-2 shadow-xl">
-        <MemberGroup
-          name="Leads"
-          members={[
-            "Risith – Software Lead",
-            "Kiet – Mechanical Lead",
-            "Alex – Business Lead",
-            "Brianna – Media Lead",
-            "Kyle – Outreach Lead",
-            "Rena – Project Manager Lead",
-          ]}
-        />
-        <MemberGroup
-          name="Software"
-          members={["Risith", "Nethul", "Aaryan", "Seth", "Dhruv"]}
-        />
-        <MemberGroup
-          name="Media"
-          members={[
-            "Brianna",
-            "Maddox",
-            "Varun",
-            "Donald Duck",
-            "Armaan",
-            "Aly",
-          ]}
-        />
-        <MemberGroup
-          name="Mentors"
-          members={["Peter Duniho", "Flynn Duniho", "Jason West"]}
-        />
+        <MemberGroup name="Leads">
+          <Member name="Risith" uRole="Software Lead" />
+          <Member name="Kiet" uRole="Mechanical Lead" />
+          <Member name="Alex" uRole="Business Lead" />
+          <Member name="Brianna" uRole="Media Lead" />
+          <Member name="Kyle" uRole="Outreach Lead" />
+          <Member name="Rena" uRole="Project Manager Lead" />
+        </MemberGroup>
+        <MemberGroup name="Software">
+          <Member name="Risith" />
+          <Member name="Nethul" />
+          <Member name="Aaryan" />
+          <Member name="Seth" />
+          <Member name="Dhruv" />
+          <Member name="Marcus" />
+        </MemberGroup>
+        <MemberGroup name="Media">
+          <Member name="Brianna" />
+          <Member name="Maddox" />
+          <Member name="Varun" />
+          <Member name="Donald Duck" />
+          <Member name="Armaan" />
+          <Member name="Aly" />
+        </MemberGroup>
+        <MemberGroup name="Mentors">
+          <Member
+            name="Kevin Finney"
+            uRole="Lead Mentor"
+            email="kfinney@nsd.org"
+          />
+          <Member
+            name="Mrs. deVidal"
+            uRole="Co-Lead Mentor"
+            email="cdevidal@nsd.org"
+          />
+          <Member name="Peter Duniho" uRole="Software mentor" />
+          <Member name="Flynn Duniho" uRole="Software mentor" />
+          <Member name="Jason West" uRole="Stategy Mentor" />
+          <Member name="Shane the Giant" uRole="Giga mentor" />
+        </MemberGroup>
       </section>
     </>
   );
 }
 
-function MemberGroup({ name, members }: { name: string; members: string[] }) {
+function MemberGroup({
+  name,
+  children,
+}: {
+  name: string;
+  children: React.ReactNode;
+}) {
   return (
     <>
       <div className="space-y-1">
-        <h2 className="text-xl font-medium mt-3">{name}</h2>
-        <hr className="text-neutral-500" />
+        <h2 className="text-2xl font-semibold mt-3">{name}</h2>
       </div>
-      <ul className="list-disc list-inside pl-5 columns-2 space-y-2">
-        {members.map((member) => (
-          <li key={member}>{member}</li>
-        ))}
-      </ul>
+      <div className="grid grid-cols-2">{children}</div>
     </>
+  );
+}
+
+function Member({
+  name,
+  uRole,
+  email,
+}: {
+  name: string;
+  uRole?: string;
+  email?: string;
+}) {
+  return (
+    <div
+      key={name}
+      className="border-t border-neutral-500 odd:border-r nth-last-3:odd:border-b nth-last-2:border-b last:odd:border-t-0 last:even:border-b p-4"
+    >
+      <p>{name}</p>
+      {uRole && (
+        <p className="text-neutral-400 text-sm">
+          {uRole}{" "}
+          {email && (
+            <>
+              {" "}
+              &middot;{" "}
+              <Link
+                href={`mailto:${email}`}
+                className="text-accent-blue no-underline hover:underline"
+              >
+                {email}
+              </Link>
+            </>
+          )}
+        </p>
+      )}
+    </div>
   );
 }

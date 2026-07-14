@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function Title({
   title,
   subtitle,
@@ -13,23 +15,46 @@ export function Title({
   );
 }
 
+export function Title2({
+  title,
+  subtitle,
+}: {
+  title: string;
+  subtitle: string;
+}) {
+  return (
+    <section className="text-left pt-6 px-8 mt-2 mb-4">
+      <h1 className="font-heading text-5xl font-black">{title}</h1>
+      <p className="mb-8">{subtitle}</p>
+      <hr />
+    </section>
+  );
+}
+
 export function Button({
   children,
-  className,
+  className = "",
   url,
+  newTab = false,
   type = "button",
 }: {
   children: React.ReactNode;
   className?: string;
   url?: string;
+  newTab?: boolean;
   type?: "button" | "submit" | "reset";
 }) {
-  const finalClassName = `${className ? className : ""} inline-block bg-accent-blue py-3 px-8 rounded-full no-underline transition-all duration-300 ease-in-out border-0 cursor-pointer hover:-translate-y-0.5 hover:bg-[#5a47ff] font-semibold`;
+  const finalClassName = `${className} inline-block bg-accent-blue py-3 px-8 rounded-full no-underline transition-all duration-300 ease-in-out border-none cursor-pointer hover:-translate-y-0.5 hover:bg-[#5a47ff] font-semibold`;
   if (url) {
     return (
-      <a href={url} target="_blank" rel="noopener" className={finalClassName}>
+      <Link
+        href={url}
+        target={newTab ? "_blank" : "_self"}
+        rel="noopener"
+        className={finalClassName}
+      >
         {children}
-      </a>
+      </Link>
     );
   }
   return (

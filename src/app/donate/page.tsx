@@ -1,16 +1,18 @@
 import type React from "react";
-import { Button } from "@/components";
+import { Button, Title2 } from "@/components";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Donate",
+};
 
 export default function Donate() {
   return (
     <>
-      <section className="text-left pt-6 px-8 mt-2 mb-4">
-        <h1 className="font-heading text-5xl font-black">Donate!</h1>
-        <p className="mb-8">
-          Donate to FIRST Washington in support of BHS ArrowDynamics
-        </p>
-        <hr />
-      </section>
+      <Title2
+        title="Donate!"
+        subtitle="Donate to FIRST Washington in support of BHS ArrowDynamics"
+      />
       <Donation title="Donate Through FIRST Washington">
         <DonationInstructions>
           You can use the button below to donate to Team 10079's booster
@@ -19,6 +21,7 @@ export default function Donate() {
         </DonationInstructions>
         <Button
           url="https://secure.givelively.org/donate/washington-first-robotics/frc-10079"
+          newTab
           className="text-xl! py-4! px-12! mt-4! bg-green-500!"
         >
           Donate
@@ -33,6 +36,7 @@ export default function Donate() {
         </DonationInstructions>
         <Button
           url="https://docs.google.com/forms/d/e/1FAIpQLScSdcQFbYjaHHs5gVnrRfIVISCk_aHpDh_8tA3sHzHzNSoGjQ/viewform?usp=header"
+          newTab
           className="text-xl! py-4! px-12! mt-4! bg-green-500!"
         >
           Sponsor Sign Up
@@ -47,12 +51,14 @@ export default function Donate() {
         <div className="flex justify-center items-center gap-4 flex-wrap my-5">
           <Button
             url="https://docs.google.com/forms/d/e/1FAIpQLScSdcQFbYjaHHs5gVnrRfIVISCk_aHpDh_8tA3sHzHzNSoGjQ/viewform?usp=header"
+            newTab
             className="text-xl! py-4! px-12! mt-4!"
           >
             Register Guest Account
           </Button>
           <Button
             url="https://docs.google.com/forms/d/e/1FAIpQLScSdcQFbYjaHHs5gVnrRfIVISCk_aHpDh_8tA3sHzHzNSoGjQ/viewform?usp=header"
+            newTab
             className="text-xl! py-4! px-12! mt-4! bg-green-500!"
           >
             Sign In To TouchBase

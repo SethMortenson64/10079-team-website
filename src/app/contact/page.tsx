@@ -1,5 +1,11 @@
 import type React from "react";
+import Link from "next/link";
 import { Button } from "@/components";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+};
 
 export default function Contact() {
   const titleClass =
@@ -14,7 +20,7 @@ export default function Contact() {
           Reach out to us
         </p>
       </section>
-      <div className="grid grid-cols-[1fr_2fr] gap-12">
+      <div className="grid grid-cols-[1fr_2fr] max-[900px]:grid-cols-[1fr] gap-12">
         <div className="bg-near-black border-border-color rounded-xl p-8">
           <h3 className={titleClass}>Contact Information</h3>
           <InfoItem title="General Inquiries">
@@ -22,26 +28,38 @@ export default function Contact() {
               roboticsbothell@gmail.com
             </p>
           </InfoItem>
+          <InfoItem title="Our Advisors">
+            <Advisor
+              name="Mr. Finney"
+              uRole="Lead Mentor"
+              email="kfinney@nsd.org"
+            />
+            <Advisor
+              name="Mrs. deVidal"
+              uRole="Co-Lead Mentor"
+              email="cdevidal@nsd.org"
+            />
+          </InfoItem>
           <InfoItem title="Our Location">
             <p className="text-neutral-400 leading-relaxed">
-              Bothell High School
+              9130 NE 180th Street
               <br />
               Bothell, WA 98011
             </p>
           </InfoItem>
           <InfoItem title="Follow Us">
-            <a
+            <Link
               href="https://www.instagram.com/arrowdynamics10079/?hl=en"
-              className="block text-accent-blue no-underline font-medium mt-2 hover:underline"
+              className="block w-max text-accent-blue no-underline font-medium hover:underline"
             >
               Instagram
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://www.youtube.com/@ad10079"
-              className="block text-accent-blue no-underline font-medium mt-2 hover:underline"
+              className="block w-max text-accent-blue no-underline font-medium hover:underline"
             >
               YouTube
-            </a>
+            </Link>
           </InfoItem>
         </div>
         <form
@@ -65,7 +83,7 @@ export default function Contact() {
           title="Our location"
           width="100%"
           height="450"
-          className="border-0"
+          className="border-none"
           allowFullScreen={false}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
@@ -83,9 +101,35 @@ function InfoItem({
   children: React.ReactNode;
 }) {
   return (
-    <div className="mb-6">
+    <div className="mb-6 space-x-2 space-y-2">
       <strong className="block font-semibold mb-2">{title}</strong>
       {children}
+    </div>
+  );
+}
+
+function Advisor({
+  name,
+  uRole,
+  email,
+}: {
+  name: string;
+  uRole: string;
+  email: string;
+}) {
+  return (
+    <div className="rounded-xl bg-neutral-900 border-2 border-border-color py-1 px-2 inline-block text-sm transition-transform duration-300 ease-in-out hover:-translate-y-0.5">
+      {name}
+      <br />
+      <span className="text-xs">
+        <span className="text-neutral-400">{uRole} &middot; </span>
+        <Link
+          href="mailto:cdevidal@nsd.org"
+          className="text-accent-blue no-underline hover:underline"
+        >
+          {email}
+        </Link>
+      </span>
     </div>
   );
 }

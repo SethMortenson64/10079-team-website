@@ -22,7 +22,7 @@ export default function Donate() {
         <Button
           url="https://secure.givelively.org/donate/washington-first-robotics/frc-10079"
           newTab
-          className="text-xl! py-4! px-12! mt-4! bg-green-500!"
+          className="text-xl! py-3! px-11! mt-4! bg-green-500!"
         >
           Donate
         </Button>
@@ -37,7 +37,7 @@ export default function Donate() {
         <Button
           url="https://docs.google.com/forms/d/e/1FAIpQLScSdcQFbYjaHHs5gVnrRfIVISCk_aHpDh_8tA3sHzHzNSoGjQ/viewform?usp=header"
           newTab
-          className="text-xl! py-4! px-12! mt-4! bg-green-500!"
+          className="text-xl! py-3! px-11! mt-4! bg-green-500!"
         >
           Sponsor Sign Up
         </Button>
@@ -52,16 +52,16 @@ export default function Donate() {
           <Button
             url="https://docs.google.com/forms/d/e/1FAIpQLScSdcQFbYjaHHs5gVnrRfIVISCk_aHpDh_8tA3sHzHzNSoGjQ/viewform?usp=header"
             newTab
-            className="text-xl! py-4! px-12! mt-4!"
+            className="text-xl! py-3! px-11! mt-4!"
           >
             Register Guest Account
           </Button>
           <Button
             url="https://docs.google.com/forms/d/e/1FAIpQLScSdcQFbYjaHHs5gVnrRfIVISCk_aHpDh_8tA3sHzHzNSoGjQ/viewform?usp=header"
             newTab
-            className="text-xl! py-4! px-12! mt-4! bg-green-500!"
+            className="text-xl! py-3! px-11! mt-4! bg-green-500!"
           >
-            Sign In To TouchBase
+            Sign In to TouchBase
           </Button>
         </div>
         <DonationInstructions>
@@ -102,7 +102,5 @@ function Donation({
 }
 
 function DonationInstructions({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="leading-relaxed mb-4 max-w-175 mx-auto text-lg">{children}</p>
-  );
+  return <p className="leading-relaxed mb-4 max-w-175 mx-auto">{children}</p>;
 }

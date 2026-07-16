@@ -1,6 +1,6 @@
-import { Title2 } from "@/components";
-import Link from "next/link";
 import type { Metadata } from "next";
+import Link from "next/link";
+import { Title2 } from "@/components";
 
 export const metadata: Metadata = {
   title: "Newsletters",

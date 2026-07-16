@@ -1,6 +1,6 @@
+import type { Metadata } from "next";
 import type React from "react";
 import { Button, Title2 } from "@/components";
-import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Donate",

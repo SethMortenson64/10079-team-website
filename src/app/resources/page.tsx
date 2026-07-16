@@ -1,9 +1,9 @@
+import type { Metadata } from "next";
 import Image, { type StaticImageData } from "next/image";
+import Link from "next/link";
 import { Title } from "@/components";
 import logoGithub from "@/img/logo-github.png";
 import placeholder from "@/img/placeholder.png";
-import Link from "next/link";
-import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Resources",

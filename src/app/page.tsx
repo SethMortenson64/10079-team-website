@@ -1,4 +1,5 @@
 import Image, { type StaticImageData } from "next/image";
+import Link from "next/link";
 import { Button } from "@/components";
 import boeing from "@/img/boeing.png";
 import dunnLumber from "@/img/dunn-lumber.png";
@@ -8,7 +9,6 @@ import logo from "@/img/logo.png";
 import nasa from "@/img/nasa.png";
 import robot from "@/img/robot.png";
 import team from "@/img/team.jpg";
-import Link from "next/link";
 
 export default function Home() {
   return (

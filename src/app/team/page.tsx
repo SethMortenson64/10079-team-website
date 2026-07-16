@@ -1,8 +1,8 @@
+import type { Metadata } from "next";
 import Image from "next/image";
-import team from "@/img/el-equipo.jpg";
 import Link from "next/link";
 import type React from "react";
-import type { Metadata } from "next";
+import team from "@/img/el-equipo.jpg";
 
 export const metadata: Metadata = {
   title: "Our Team",

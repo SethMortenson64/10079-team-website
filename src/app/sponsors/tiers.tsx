@@ -2,14 +2,17 @@
 
 import { Masonry } from "masonic";
 import Image, { type StaticImageData } from "next/image";
+import Link from "next/link";
 import apple from "@/img/sponsors/apple.svg";
 import argosyFoundation from "@/img/sponsors/argosy-foundation.png";
 import bcCraftsman from "@/img/sponsors/bc-craftsman.png";
 import bhs from "@/img/sponsors/bhs.png";
 import boeing from "@/img/sponsors/boeing.png";
 import dunnLumber from "@/img/sponsors/dunn-lumber.png";
+import first from "@/img/sponsors/first.png";
 import fluke from "@/img/sponsors/fluke.webp";
 import flukeMetalProducts from "@/img/sponsors/fluke-metal-products.png";
+import h10Capital from "@/img/sponsors/h10-capital.png";
 import haas from "@/img/sponsors/haas.webp";
 import intuitiveFoundation from "@/img/sponsors/intuitive-foundation.webp";
 import nasa from "@/img/sponsors/nasa.png";
@@ -18,13 +21,10 @@ import northwestFolkLife from "@/img/sponsors/northwest-folklike.png";
 import nsd from "@/img/sponsors/nsd.png";
 import onlineMetalsCom from "@/img/sponsors/onlinemetals_com.svg";
 import ptsa from "@/img/sponsors/ptsa.png";
+import romacIndustries from "@/img/sponsors/romac-industries.png";
 import rotary from "@/img/sponsors/rotary.png";
 import speea from "@/img/sponsors/speea.png";
 import woodinvillePrint from "@/img/sponsors/woodinville-print.png";
-import h10Capital from "@/img/sponsors/h10-capital.png";
-import first from "@/img/sponsors/first.png";
-import romacIndustries from "@/img/sponsors/romac-industries.png";
-import Link from "next/link";
 
 type Sponsor = {
   name: string;

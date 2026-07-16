@@ -1,7 +1,7 @@
-import type React from "react";
-import Link from "next/link";
-import { Button } from "@/components";
 import type { Metadata } from "next";
+import Link from "next/link";
+import type React from "react";
+import { Button } from "@/components";
 
 export const metadata: Metadata = {
   title: "Contact Us",

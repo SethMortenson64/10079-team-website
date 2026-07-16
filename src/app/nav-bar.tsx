@@ -1,8 +1,8 @@
 "use client";
 
-import { useId, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { useId, useState } from "react";
 import logo from "@/img/logo-2.png";
 
 export default function NavBar() {

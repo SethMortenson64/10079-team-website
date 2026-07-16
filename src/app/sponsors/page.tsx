@@ -1,5 +1,5 @@
-import { Button } from "@/components";
 import type { Metadata } from "next";
+import { Button } from "@/components";
 import Tiers from "./tiers";
 
 export const metadata: Metadata = {

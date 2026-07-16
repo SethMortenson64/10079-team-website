@@ -1,6 +1,6 @@
-import { Title } from "@/components";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Title } from "@/components";
 
 export const metadata: Metadata = {
   title: "Calendar & Schedule",

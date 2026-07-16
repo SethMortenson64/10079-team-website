@@ -1,6 +1,6 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { Inter, Roboto } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 import { SiInstagram, SiYoutube } from "@icons-pack/react-simple-icons";
 import NavBar from "./nav-bar";
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${roboto.variable} antialiased h-screen flex flex-col font-sans bg-background text-foreground`}
+        className={`${inter.variable} ${roboto.variable} antialiased h-screen flex flex-col font-sans bg-linear-to-br from-blue-500 to-blue-800 bg-no-repeat bg-fixed text-foreground`}
       >
         <NavBar />
         <div className="flex-1">

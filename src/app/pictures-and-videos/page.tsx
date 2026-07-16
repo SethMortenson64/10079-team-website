@@ -1,13 +1,13 @@
 "use client";
 
+import { Masonry } from "masonic";
 import Image, { type StaticImageData } from "next/image";
 import building1 from "@/img/building-1.jpg";
 import innovating from "@/img/innovating.png";
 import risithSmart from "@/img/risith-smart.png";
-import whiteboard from "@/img/whiteboard.png";
-import { Masonry } from "masonic";
-import robot from "@/img/robot-in-action.png";
 import robot2 from "@/img/robot.png";
+import robot from "@/img/robot-in-action.png";
+import whiteboard from "@/img/whiteboard.png";
 
 type Media = {
   src: string | StaticImageData;

@@ -59,7 +59,9 @@ const COMPETITIONS: Media[] = [
 export default function VisualMedia() {
   return (
     <>
-      <h1 className="text-5xl font-heading font-medium mt-12 text-center">Pictures & Videos</h1>
+      <h1 className="text-5xl font-heading font-medium mt-12 text-center">
+        Pictures & Videos
+      </h1>
       <section className="bg-near-black mt-12 rounded-2xl shadow-xl p-12 max-[900px]:p-8">
         <h1 className="text-3xl font-bold mb-6">Designing the Robot</h1>
         <Masonry

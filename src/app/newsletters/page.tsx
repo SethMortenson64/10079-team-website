@@ -19,7 +19,10 @@ export default function Newsletters() {
             Latest Newsletter PDFs
           </h2>
           <div className="mt-5 grid grid-cols-1 gap-5">
-            <Newsletter title="April Auburn 2026 Newsletter" url="/newsletters/april-2026.pdf" />
+            <Newsletter
+              title="April Auburn 2026 Newsletter"
+              url="/newsletters/april-2026.pdf"
+            />
             <Newsletter
               title="March Glacier Peak 2026 Newsletter"
               url="/newsletters/march-2026.pdf"

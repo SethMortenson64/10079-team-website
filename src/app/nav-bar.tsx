@@ -2,6 +2,8 @@
 
 import { useId, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import logo from "@/img/logo-2.png";
 
 export default function NavBar() {
   const spanClass =
@@ -14,11 +16,8 @@ export default function NavBar() {
     <header className="bg-near-black py-6 border-b border-border-color z-100 sticky top-0 shadow-lg">
       <div className="flex justify-between items-center max-w-300 mx-auto px-16 max-[900px]:px-6 max-[900px]:flex-col max-[900px]:gap-6 max-[900px]:relative max-[900px]:py-2">
         <div>
-          <Link
-            href="/"
-            className="text-accent-blue no-underline text-2xl font-extrabold"
-          >
-            ArrowDynamics
+          <Link href="/">
+            <Image src={logo} alt="Logo" className="w-50 h-auto" />
           </Link>
         </div>
         <button

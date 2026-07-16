@@ -14,6 +14,9 @@ let hue = 0;
 
 function changeSelectionColor() {
   hue = (hue + 1) % 360;
-  document.documentElement.style.setProperty("--color-selection", `hsl(${hue} 100% 50% / 0.5)`);
+  document.documentElement.style.setProperty(
+    "--color-selection",
+    `hsl(${hue} 100% 50% / 0.5)`,
+  );
   requestAnimationFrame(changeSelectionColor);
 }

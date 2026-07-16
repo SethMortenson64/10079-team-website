@@ -40,7 +40,9 @@ export default function Team() {
           <Member name="Marcus" />
         </MemberGroup>
         <MemberGroup name="Mechanical">
-          <h3 className="text-xl font-medium border-neutral-500 p-4 border-r">Fabrication</h3>
+          <h3 className="text-xl font-medium border-neutral-500 p-4 border-r">
+            Fabrication
+          </h3>
           <h3 className="text-xl font-medium border-neutral-500 p-4">CAD</h3>
           <Member name="Kiet" />
           <Member name="Kiet" />

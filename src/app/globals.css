@@ -10,7 +10,7 @@
 }
 
 ::selection {
-  background-color: green;
+  background-color: var(--color-selection);
 }
 
 @theme inline {

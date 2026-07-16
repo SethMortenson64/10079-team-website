@@ -21,6 +21,9 @@ import ptsa from "@/img/sponsors/ptsa.png";
 import rotary from "@/img/sponsors/rotary.png";
 import speea from "@/img/sponsors/speea.png";
 import woodinvillePrint from "@/img/sponsors/woodinville-print.png";
+import h10Capital from "@/img/sponsors/h10-capital.png";
+import first from "@/img/sponsors/first.png";
+import romacIndustries from "@/img/sponsors/romac-industries.png";
 import Link from "next/link";
 
 type Sponsor = {
@@ -150,6 +153,27 @@ const tier2Sponsors: Sponsor[] = [
   },
 ];
 
+const tier1Sponsors: Sponsor[] = [
+  {
+    name: "H10 Capital",
+    img: h10Capital,
+    url: "https://h10capital.com/",
+    whiteBg: true,
+  },
+  {
+    name: "FIRST\u00AE",
+    img: first,
+    url: "https://www.firstinspires.org/",
+    whiteBg: false,
+  },
+  {
+    name: "Romac Industries",
+    img: romacIndustries,
+    url: "https://www.romac.com/",
+    whiteBg: false,
+  },
+];
+
 export default function Tiers() {
   return (
     <>
@@ -171,7 +195,7 @@ export default function Tiers() {
           render={Sponsor}
         />
       </section>
-      <section className="grid grid-cols-2 max-[900px]:grid-cols-1 gap-32 max-[900px]:gap-8">
+      <section className="grid grid-cols-2 max-[900px]:grid-cols-1 mb-32 gap-32 max-[900px]:gap-8">
         <div>
           <h2 className="font-heading text-3xl font-semibold mb-4">Tier 2</h2>
           <p>
@@ -184,6 +208,23 @@ export default function Tiers() {
         <Masonry
           items={tier2Sponsors}
           columnWidth={120}
+          columnGutter={16}
+          rowGutter={16}
+          render={Sponsor}
+        />
+      </section>
+      <section className="grid grid-cols-2 max-[900px]:grid-cols-1 gap-32 max-[900px]:gap-8">
+        <div>
+          <h3 className="font-heading text-2xl font-semibold mb-4">Tier 1</h3>
+          <p>
+            Become a silver sponsor with a monthly donation of $500 USD and get
+            your Open Collective or GitHub avatar image on our README on GitHub
+            and the front page of eslint.org.
+          </p>
+        </div>
+        <Masonry
+          items={tier1Sponsors}
+          columnWidth={90}
           columnGutter={16}
           rowGutter={16}
           render={Sponsor}

@@ -4,6 +4,7 @@ import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
 import { SiInstagram, SiYoutube } from "@icons-pack/react-simple-icons";
 import NavBar from "./nav-bar";
+import RandomSelectionColor from "./selection-color";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -40,6 +41,7 @@ export default function RootLayout({
           </main>
         </div>
         <Footer />
+        <RandomSelectionColor />
       </body>
     </html>
   );

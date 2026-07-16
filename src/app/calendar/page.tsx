@@ -73,7 +73,7 @@ const EVENTS: Event[] = [
 
 export default function Calendar() {
   const eventsClass =
-    "grid grid-cols-[repeat(auto-fill,minmax(350px,1fr))] gap-6";
+    "grid grid-cols-[repeat(auto-fill,minmax(21.75rem,1fr))] gap-6";
 
   return (
     <>

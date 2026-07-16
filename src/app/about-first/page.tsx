@@ -15,7 +15,7 @@ export default function AboutFirst() {
           Founded in 1989 by inventor and entrepreneur Dean Kamen, FIRST® (For
           the Inspiration and Recognition of Science and Technologies) is the
           leading nonprofit STEM-engagement program for youth worldwide, not
-          only inspiring young people’s interest in STEM-related careers, but
+          only inspiring young people&rsquo;s interest in STEM-related careers, but
           also imbuing them with skills essential in the workplace through the
           values of Gracious Professionalism and Cooperation. With its four
           different youth programs spanning kindergarten to grade 12, FIRST has

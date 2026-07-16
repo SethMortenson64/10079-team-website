@@ -11,7 +11,7 @@ export default function NavBar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   return (
-    <header className="bg-near-black py-6 border-b border-border-color z-100 sticky top-0">
+    <header className="bg-near-black py-6 border-b border-border-color z-100 sticky top-0 shadow-lg">
       <div className="flex justify-between items-center max-w-300 mx-auto px-16 max-[900px]:px-6 max-[900px]:flex-col max-[900px]:gap-6 max-[900px]:relative max-[900px]:py-2">
         <div>
           <Link
@@ -54,6 +54,7 @@ export default function NavBar() {
             activeDropdown={activeDropdown}
             setActiveDropdown={setActiveDropdown}
           >
+            <NavChild title="Pictures & Videos" url="/pictures-and-videos" />
             <NavChild title="Newsletters" url="/newsletters" />
           </NavItem>
           <NavItem title="Resources" url="/resources" />

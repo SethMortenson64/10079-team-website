@@ -1,7 +1,7 @@
 import Image from "next/image";
 import team from "@/img/el-equipo.jpg";
 import Link from "next/link";
-import React from "react";
+import type React from "react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,8 +9,6 @@ export const metadata: Metadata = {
 };
 
 export default function Team() {
-  // TODO: Make it so that you can hover over a team member in the photo to see their name and info
-
   return (
     <>
       <section className="text-center pt-16 px-8 pb-8">
@@ -41,11 +39,25 @@ export default function Team() {
           <Member name="Dhruv" />
           <Member name="Marcus" />
         </MemberGroup>
+        <MemberGroup name="Mechanical">
+          <h3 className="text-xl font-medium border-neutral-500 p-4 border-r">Fabrication</h3>
+          <h3 className="text-xl font-medium border-neutral-500 p-4">CAD</h3>
+          <Member name="Kiet" />
+          <Member name="Kiet" />
+          <Member name="Kyle" />
+          <Member name="Daniel" />
+          <Member name="Elijah" />
+          <Member name="Jace" />
+          <Member name="Jensen" />
+          <Member name="Carson" />
+          <Member name="Owen" />
+          <Member name="Jonathon" />
+        </MemberGroup>
         <MemberGroup name="Media">
           <Member name="Brianna" />
           <Member name="Maddox" />
           <Member name="Varun" />
-          <Member name="Donald Duck" />
+          <Member name="Donal" />
           <Member name="Armaan" />
           <Member name="Aly" />
         </MemberGroup>
@@ -62,8 +74,9 @@ export default function Team() {
           />
           <Member name="Peter Duniho" uRole="Software mentor" />
           <Member name="Flynn Duniho" uRole="Software mentor" />
-          <Member name="Jason West" uRole="Stategy Mentor" />
-          <Member name="Shane the Giant" uRole="Giga mentor" />
+          <Member name="Jason West" uRole="Strategy mentor" />
+          <Member name="Shane the Giant" uRole="Mechanical mentor" />
+          <Member name="Debra Tan" uRole="Outreach mentor" />
         </MemberGroup>
       </section>
     </>

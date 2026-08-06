@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
-import { Inter, Roboto } from "next/font/google";
+import { Inter } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 import { SiInstagram, SiYoutube } from "@icons-pack/react-simple-icons";
 import NavBar from "./nav-bar";
-import RandomSelectionColor from "./selection-color";
+import RenaDetector from "./rena-detector";
 
 const inter = Inter({
   variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const roboto = Roboto({
-  variable: "--font-roboto",
   subsets: ["latin"],
 });
 
@@ -32,8 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${roboto.variable} antialiased h-screen flex flex-col font-sans bg-linear-to-br from-blue-500 to-blue-800 bg-no-repeat bg-fixed text-foreground`}
+        className={`${inter.variable} antialiased h-screen flex flex-col font-sans bg-linear-to-br from-blue-500 to-blue-800 bg-no-repeat bg-fixed text-foreground`}
       >
+        <RenaDetector />
         <NavBar />
         <div className="flex-1">
           <main className="max-w-300 mx-auto px-16 max-[900px]:px-6">
@@ -41,7 +37,6 @@ export default function RootLayout({
           </main>
         </div>
         <Footer />
-        <RandomSelectionColor />
       </body>
     </html>
   );

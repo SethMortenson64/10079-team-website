@@ -2,10 +2,13 @@
 
 import { useEffect } from "react";
 
-export default function RandomSelectionColor() {
+export default function RgbSelectionColor() {
   useEffect(() => {
+    const style = document.createElement("style");
+    style.innerHTML = "::selection { background: var(--color-selection); }";
+    document.head.appendChild(style);
     changeSelectionColor();
-  });
+  }, []);
 
   return null;
 }

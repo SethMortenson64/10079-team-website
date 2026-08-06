@@ -9,7 +9,9 @@ import bcCraftsman from "@/img/sponsors/bc-craftsman.png";
 import bhs from "@/img/sponsors/bhs.png";
 import boeing from "@/img/sponsors/boeing.png";
 import dunnLumber from "@/img/sponsors/dunn-lumber.png";
+import electroImpact from "@/img/sponsors/electroimpact.png";
 import first from "@/img/sponsors/first.png";
+import firstWa from "@/img/sponsors/first-wa.png";
 import fluke from "@/img/sponsors/fluke.webp";
 import flukeMetalProducts from "@/img/sponsors/fluke-metal-products.png";
 import h10Capital from "@/img/sponsors/h10-capital.png";
@@ -20,6 +22,7 @@ import nealSmilesOrthodontics from "@/img/sponsors/neal-smiles-orthodontics.png"
 import northwestFolkLife from "@/img/sponsors/northwest-folklike.png";
 import nsd from "@/img/sponsors/nsd.png";
 import onlineMetalsCom from "@/img/sponsors/onlinemetals_com.svg";
+import onshape from "@/img/sponsors/onshape.png";
 import ptsa from "@/img/sponsors/ptsa.png";
 import romacIndustries from "@/img/sponsors/romac-industries.png";
 import rotary from "@/img/sponsors/rotary.png";
@@ -33,7 +36,14 @@ type Sponsor = {
   whiteBg: boolean;
 };
 
-const tier3Sponsors: Sponsor[] = [
+const hypersonicTierSponsors: Sponsor[] = [
+  {
+    name: "FIRST\u00AE WA",
+    img: firstWa,
+    url: "https://firstwa.org/",
+    whiteBg: false,
+  },
+  /*
   {
     name: "SPEEA IFPTE Local 2001",
     img: speea,
@@ -76,9 +86,71 @@ const tier3Sponsors: Sponsor[] = [
     url: "https://bothell.nsd.org/",
     whiteBg: false,
   },
+  */
 ];
 
-const tier2Sponsors: Sponsor[] = [
+const supersonicTierSponsors: Sponsor[] = [
+  {
+    name: "HAAS",
+    img: haas,
+    url: "https://www.ghaasfoundation.org/",
+    whiteBg: false,
+  },
+  {
+    name: "Boeing",
+    img: boeing,
+    url: "https://www.boeing.com/",
+    whiteBg: false,
+  },
+  {
+    name: "H10 Capital",
+    img: h10Capital,
+    url: "https://h10capital.com/",
+    whiteBg: true,
+  },
+  {
+    name: "Electroimpact",
+    img: electroImpact,
+    url: "https://www.electroimpact.com/",
+    whiteBg: false,
+  },
+  {
+    name: "Fluke",
+    img: fluke,
+    url: "https://www.fluke.com/",
+    whiteBg: false,
+  },
+  {
+    name: "SPEEA IFPTE Local 2001",
+    img: speea,
+    url: "https://speea.org/",
+    whiteBg: false,
+  },
+  {
+    name: "Bothell High School",
+    img: bhs,
+    url: "https://bothell.nsd.org/",
+    whiteBg: false,
+  },
+  {
+    name: "Onshape",
+    img: onshape,
+    url: "https://www.onshape.com/",
+    whiteBg: false,
+  },
+  {
+    name: "Apple",
+    img: apple,
+    url: "https://www.apple.com/",
+    whiteBg: false,
+  },
+  {
+    name: "Fluke Metal Products",
+    img: flukeMetalProducts,
+    url: "https://www.flukemetal.com/",
+    whiteBg: false,
+  },
+  /*
   {
     name: "Boeing",
     img: boeing,
@@ -151,9 +223,23 @@ const tier2Sponsors: Sponsor[] = [
     url: "https://www.flukemetal.com/",
     whiteBg: false,
   },
+  */
 ];
 
 const tier1Sponsors: Sponsor[] = [
+  {
+    name: "Dunn Lumber",
+    img: dunnLumber,
+    url: "https://www.dunnlumber.com/",
+    whiteBg: false,
+  },
+  {
+    name: "Rotary",
+    img: rotary,
+    url: "https://www.nshorerotary.org/",
+    whiteBg: false,
+  },
+  /*
   {
     name: "H10 Capital",
     img: h10Capital,
@@ -172,6 +258,7 @@ const tier1Sponsors: Sponsor[] = [
     url: "https://www.romac.com/",
     whiteBg: false,
   },
+  */
 ];
 
 export default function Tiers() {
@@ -179,17 +266,21 @@ export default function Tiers() {
     <>
       <section className="grid grid-cols-2 max-[900px]:grid-cols-1 mt-12 mb-32 gap-32 max-[900px]:gap-8">
         <div>
-          <h1 className="font-heading text-4xl font-semibold mb-4">Tier 3</h1>
+          <h1 className="font-heading text-4xl font-semibold mb-4">
+            Hypersonic Tier
+          </h1>
           <p>
-            Become a platinum sponsor with a monthly donation of $2,000 USD and
-            get your Open Collective or GitHub avatar image on our READMEs on
-            GitHub and the home page of eslint.org. We will also tweet a thank
-            you from our Twitter account (over 38,000 followers).
+            Become a Hypersonic Tier sponsor with a donation of $5,000-$9,999
+            USD and get your logo on our website, T-shirts, banner, and robot.
+            We will also give you a social media shoutout (over xxxxx
+            followers), a handwritten thank-you, team performance updates, and
+            an on-site demonstration of our robot.
           </p>
         </div>
+        {/* columnWidth was 180 */}
         <Masonry
-          items={tier3Sponsors}
-          columnWidth={180}
+          items={hypersonicTierSponsors}
+          columnWidth={Number.MAX_SAFE_INTEGER}
           columnGutter={16}
           rowGutter={16}
           render={Sponsor}
@@ -197,16 +288,18 @@ export default function Tiers() {
       </section>
       <section className="grid grid-cols-2 max-[900px]:grid-cols-1 mb-32 gap-32 max-[900px]:gap-8">
         <div>
-          <h2 className="font-heading text-3xl font-semibold mb-4">Tier 2</h2>
+          <h2 className="font-heading text-3xl font-semibold mb-4">
+            Supersonic Tier
+          </h2>
           <p>
-            Become a gold sponsor with a monthly donation of $1,000 USD and get
-            your Open Collective or GitHub avatar image on our README on GitHub
-            and the front page of eslint.org. We will also tweet a thank you
-            from our Twitter account (over 38,000 followers).
+            Become a Supersonic Tier sponsor with a donation of $1,000-$4,999
+            USD and get your logo on our website, T-shirts, robot, and banner.
+            We will also give you a social media shoutout (over xxxxx
+            followers), a handwritten thank-you, and team performance updates.
           </p>
         </div>
         <Masonry
-          items={tier2Sponsors}
+          items={supersonicTierSponsors}
           columnWidth={120}
           columnGutter={16}
           rowGutter={16}
@@ -215,11 +308,13 @@ export default function Tiers() {
       </section>
       <section className="grid grid-cols-2 max-[900px]:grid-cols-1 gap-32 max-[900px]:gap-8">
         <div>
-          <h3 className="font-heading text-2xl font-semibold mb-4">Tier 1</h3>
+          <h3 className="font-heading text-2xl font-semibold mb-4">
+            Sonic Tier
+          </h3>
           <p>
-            Become a silver sponsor with a monthly donation of $500 USD and get
-            your Open Collective or GitHub avatar image on our README on GitHub
-            and the front page of eslint.org.
+            Become a Sonic Tier sponsor with a donation of $250-$999 and get
+            your logo on our website, T-shirts, and robot. We will also give you
+            a social media shoutout and a handwritten thank-you.
           </p>
         </div>
         <Masonry

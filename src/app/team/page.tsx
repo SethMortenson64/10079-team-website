@@ -97,7 +97,9 @@ function MemberGroup({
       <div className="space-y-1">
         <h2 className="text-2xl font-semibold mt-3">{name}</h2>
       </div>
-      <div className="grid grid-cols-2">{children}</div>
+      <div className="grid grid-cols-2 border-b border-neutral-500">
+        {children}
+      </div>
     </>
   );
 }
@@ -114,7 +116,7 @@ function Member({
   return (
     <div
       key={name}
-      className="border-t border-neutral-500 odd:border-r nth-last-3:odd:border-b nth-last-2:border-b last:odd:border-t-0 last:even:border-b p-4"
+      className="border-t border-neutral-500 odd:border-r nth-last-3:odd:border-b nth-last-2:even:border-b last:odd:border-t-0 p-4"
     >
       <p>{name}</p>
       {uRole && (

@@ -50,14 +50,14 @@ export default function Donate() {
         </DonationInstructions>
         <div className="flex justify-center items-center gap-4 flex-wrap my-5">
           <Button
-            url="https://docs.google.com/forms/d/e/1FAIpQLScSdcQFbYjaHHs5gVnrRfIVISCk_aHpDh_8tA3sHzHzNSoGjQ/viewform?usp=header"
+            url="https://wa-northshore.intouchreceipting.com/signup.aspx"
             newTab
             className="text-xl! py-3! px-11! mt-4!"
           >
             Register Guest Account
           </Button>
           <Button
-            url="https://docs.google.com/forms/d/e/1FAIpQLScSdcQFbYjaHHs5gVnrRfIVISCk_aHpDh_8tA3sHzHzNSoGjQ/viewform?usp=header"
+            url="https://wa-northshore.intouchreceipting.com/signin"
             newTab
             className="text-xl! py-3! px-11! mt-4! bg-green-500!"
           >

@@ -1,116 +1,98 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Link from "next/link";
-import { Title } from "@/components";
+import { cache } from "react";
+import { Title, TitleSection } from "@/components";
+import Countdown from "./countdown";
+import { type Event, EventStatus, eventBaseToEvent } from "./event";
 
 export const metadata: Metadata = {
   title: "Calendar & Schedule",
 };
 
-type EventBase = {
-  title: string;
-  subtitle: string;
-  start: Date;
-  end?: Date;
-  url?: string;
-};
-
-type Event = EventBase & { status: EventStatus };
-
-enum EventStatus {
-  Upcoming = "UPCOMING",
-  InProgress = "IN PROGRESS",
-  Completed = "COMPLETED",
-}
-
-function getEventStatus(event: EventBase): EventStatus {
-  const now = new Date();
-  const end = new Date(event.end ? event.end : event.start);
-  end.setDate(end.getDate() + 1);
-  if (event.start > now) {
-    return EventStatus.Upcoming;
-  }
-  if (end >= now) {
-    return EventStatus.InProgress;
-  }
-  return EventStatus.Completed;
-}
-
-const EVENTS: Event[] = [
+const EVENT_PROMISES = [
   {
     title: "2026 SEASON KICKOFF",
     subtitle: "The game is revealed!",
     start: new Date(2026, 0, 10),
   },
   {
-    title: "2026 PNW District Championship",
+    subtitle: "Regional Event",
+    url: "https://frc-events.firstinspires.org/2026/WASNO",
+    eventKey: "2026wasno",
+  },
+  {
+    subtitle: "Regional Event",
+    url: "https://frc-events.firstinspires.org/2026/waahs",
+    eventKey: "2026waahs",
+  },
+  {
     subtitle: "District Championship Event",
-    start: new Date(2026, 3, 8),
-    end: new Date(2026, 3, 11),
     url: "https://frc-events.firstinspires.org/2026/PNCMP",
+    eventKey: "2026pncmp",
   },
   {
     title: "Bordie Blast",
-    subtitle: "Bordie through Time",
+    subtitle: "Off-Season Competition",
     start: new Date(2026, 9, 9),
     end: new Date(2026, 9, 11),
     url: "https://www.bordieblast.com/bordie-through-time-2026",
   },
   {
-    title: "Girls Generation",
+    title: "Girls Gen",
     subtitle: "Off-Season Competition",
     start: new Date(2026, 9, 17),
     end: new Date(2026, 9, 18),
     url: "https://tahomarobotics.org/2026-wa-girls-generation",
   },
   {
-    title: "PNW Block Party",
+    title: "Block Party",
     subtitle: "Off-Season Competition",
     start: new Date(2026, 9, 24),
     end: new Date(2026, 9, 25),
     url: "https://frcteam2910.org/pnwblockparty/",
   },
-].map((event) => ({ ...event, status: getEventStatus(event) }));
+].map(async (event) => await eventBaseToEvent(event));
+const events = (await Promise.all(EVENT_PROMISES)).filter(
+  (event) => event !== null,
+);
 
 export default function Calendar() {
   const eventsClass =
-    "grid grid-cols-[repeat(auto-fill,minmax(21.75rem,1fr))] gap-6";
+    "grid grid-cols-[repeat(auto-fill,minmax(16rem,1fr))] gap-6";
 
   return (
-    <>
-      <Title
-        title="Team Calendar"
-        subtitle="All official meetings, build sessions, and competition dates in this
-        calendar."
-      />
+    <div className="max-w-300 px-16 max-[900px]:px-6 w-full">
+      <TitleSection>
+        <Title>Calendar & Events</Title>
+        <p>
+          All official meetings, build sessions, and competition dates are here.
+        </p>
+      </TitleSection>
       <section className="mb-12">
-        <h2 className="font-heading text-4xl font-bold text-center mb-8">
+        <h2 className="font-heading text-4xl text-center mb-8">
           Upcoming Events
         </h2>
         <div className={eventsClass}>
-          {EVENTS.filter((event) =>
-            [EventStatus.Upcoming, EventStatus.InProgress].includes(
-              event.status,
-            ),
-          )
+          {events
+            .filter((event) =>
+              [EventStatus.Upcoming, EventStatus.InProgress].includes(
+                event.status,
+              ),
+            )
             .sort((a, b) => a.start.getTime() - b.start.getTime())
             .map((event) => (
-              <Event key={event.start.toISOString()} event={event} />
+              <EventCard key={event.id} event={event} />
             ))}
         </div>
-        <details className="mt-8 col-span-full bg-near-black border border-border-color rounded-xl p-4 group">
-          <summary className="font-bold p-2 cursor-pointer list-none after:content-['+'] after:float-right after:font-bold group-open:after:content-['-'] group-open:border-b group-open:border-border-color group-open:mb-4 group-open:text-accent-blue">
-            Past Notable Events
-          </summary>
-          <div className={`${eventsClass} mt-4`}>
-            {EVENTS.filter((event) => event.status === EventStatus.Completed)
-              .sort((a, b) => b.start.getTime() - a.start.getTime())
-              .map((event) => (
-                <Event key={event.start.toISOString()} event={event} />
-              ))}
-          </div>
-        </details>
       </section>
-      <p className="text-lg">Note: We are currently having summer meetings</p>
+      <section className="text-center">
+        <h2 className="font-heading text-4xl">Calendar</h2>
+        <p>
+          <span className="font-semibold">Note:</span> We are currently having
+          summer meetings every Tuesday and Thursday.
+        </p>
+      </section>
       <div className="bg-near-black border border-border-color rounded-2xl p-8 mt-8 mb-16 shadow-lg relative w-full h-0 pb-[75%]">
         <iframe
           title="Team Calendar"
@@ -120,32 +102,104 @@ export default function Calendar() {
           height="600"
         ></iframe>
       </div>
-    </>
+      <details className="mt-8 col-span-full bg-near-black border border-border-color rounded-xl p-4 group">
+        <summary className="font-bold p-2 cursor-pointer list-none after:content-['+'] after:float-right after:font-bold group-open:after:content-['-'] group-open:border-b group-open:border-border-color group-open:mb-4 group-open:text-accent-blue">
+          Past Notable Events
+        </summary>
+        <div className="flex flex-col gap-4 mt-4">
+          {events
+            .filter((event) => event.status === EventStatus.Completed)
+            .sort((a, b) => b.start.getTime() - a.start.getTime())
+            .map((event) => (
+              <PreviousEvent key={event.id} event={event} />
+            ))}
+        </div>
+      </details>
+    </div>
   );
 }
 
-function Event({ event }: { event: Event }) {
+const getDtFormatter = cache(async () => {
+  const headersList = await headers();
+  const acceptLanguage = headersList.get("accept-language");
+  return new Intl.DateTimeFormat(
+    acceptLanguage ? acceptLanguage.split(",")[0] : "en-US",
+    {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    },
+  );
+});
+
+async function EventCard({ event }: { event: Event }) {
+  const dtFormatter = await getDtFormatter();
   const className =
-    "bg-near-black border border-accent-blue rounded-xl p-6 flex items-center gap-6 transition-transform duration-300 ease-in-out hover:-translate-y-1";
+    "bg-near-black border border-accent-blue rounded-xl p-6 transition-transform duration-300 hover:-translate-y-1 flex flex-col gap-5";
 
   const inner = (
     <>
-      <div className="bg-[#0d0d0d] border border-border-color rounded-lg p-3 min-w-17 text-center flex flex-col justify-center">
-        <span className="text-sm font-bold text-accent-blue uppercase block">
-          {event.start.toLocaleString("default", {
-            month: "short",
-          })}
-        </span>
-        <span className="text-3xl font-black leading-none block">
-          {event.start.getDate()}
-        </span>
-      </div>
+      <h3 className="font-heading text-2xl">{event.title}</h3>
       <div>
-        <h3 className="font-heading text-xl mb-2 uppercase">{event.title}</h3>
-        <p className="mb-2 leading-snug text-neutral-400">{event.subtitle}</p>
-        <span className="text-xs font-bold text-near-black bg-[#f1c40f] py-1 px-2.5 rounded-sm inline-block">
-          {event.status}
-        </span>
+        <p className="leading-relaxed font-semibold">
+          {dtFormatter.formatRange(event.start, event.end || event.start)}
+        </p>
+        <p className="text-neutral-400">{event.subtitle}</p>
+      </div>
+      <hr className="text-border-color mt-auto" />
+      <Countdown event={event} />
+    </>
+  );
+  if (event.url) {
+    return (
+      <Link
+        href={event.url}
+        target="_blank"
+        rel="noopener"
+        className={className}
+      >
+        {inner}
+      </Link>
+    );
+  }
+  return <div className={className}>{inner}</div>;
+}
+
+async function PreviousEvent({ event }: { event: Event }) {
+  let awards: { name: string }[] | null = null;
+  if (event.eventKey) {
+    const awardsResp = await fetch(
+      `https://www.thebluealliance.com/api/v3/team/frc10079/event/${event.eventKey}/awards`,
+      {
+        headers: {
+          "X-TBA-Auth-Key":
+            "nX8ruBZevQpVtD2ttNFTQOC6jP9BsQ5TaKb09wHuoRUDhhXZq1mZGFGg3AuIRJp1",
+        },
+      },
+    );
+    if (awardsResp.status === 200) {
+      awards = await awardsResp.json();
+    }
+  }
+
+  const className =
+    "bg-near-black border border-accent-blue rounded-xl p-4 gap-2 flex items-center justify-between transition-transform duration-300 ease-in-out hover:-translate-y-1";
+
+  const inner = (
+    <>
+      <div>
+        <h3 className="font-heading text-lg mb-1 uppercase">{event.title}</h3>
+        <p className="leading-snug text-neutral-400">{event.subtitle}</p>
+      </div>
+      <div className="flex gap-2">
+        {awards?.map((award) => (
+          <div
+            key={award.name}
+            className="text-xs font-bold text-near-black bg-[#f1c40f] py-2 px-4 rounded-full uppercase text-nowrap"
+          >
+            {award.name}
+          </div>
+        ))}
       </div>
     </>
   );

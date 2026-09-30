@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import dean from "@/img/dean.avif";
 
 export const metadata: Metadata = {
   title: "About FIRST®",
@@ -6,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function AboutFirst() {
   return (
-    <>
-      <section className="my-8 font-heading font-bold uppercase text-4xl">
+    <div className="max-w-300 px-16 max-[900px]:px-6 w-full">
+      <section className="my-8 font-heading uppercase text-4xl">
         “It’s More Than Robots”
       </section>
       <section className="space-y-4">
@@ -37,6 +39,6 @@ export default function AboutFirst() {
           required).
         </p>
       </section>
-    </>
+    </div>
   );
 }

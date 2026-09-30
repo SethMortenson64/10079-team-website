@@ -4,7 +4,6 @@ import Link from "next/link";
 import "./globals.css";
 import { SiInstagram, SiYoutube } from "@icons-pack/react-simple-icons";
 import NavBar from "./nav-bar";
-import RenaDetector from "./rena-detector";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -27,15 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} antialiased h-screen flex flex-col font-sans bg-linear-to-br from-blue-500 to-blue-800 bg-no-repeat bg-fixed text-foreground`}
+        className={`${inter.variable} antialiased min-h-screen flex flex-col font-sans bg-blue-600 text-foreground`}
       >
-        <RenaDetector />
         <NavBar />
-        <div className="flex-1">
-          <main className="max-w-300 mx-auto px-16 max-[900px]:px-6">
-            {children}
-          </main>
-        </div>
+        <main className="flex flex-col items-center grow">{children}</main>
         <Footer />
       </body>
     </html>
@@ -45,42 +39,65 @@ export default function RootLayout({
 function Footer() {
   return (
     <footer className="bg-near-black border-t border-border-color py-8 mt-16">
-      <div className="max-w-300 mx-auto px-16 flex flex-col items-center gap-4 max-[900px]:px-6">
-        <div className="flex gap-4">
-          <Link
-            href="https://www.instagram.com/arrowdynamics10079/"
-            target="_blank"
-            rel="noopener"
-            className="flex gap-2 items-center group"
-          >
-            <SiInstagram
-              size={32}
-              className="transition-opacity duration-300 ease-in-out hover:opacity-100 text-[#ff0069] group-hover:text-[#e6005f]"
-            />
-            <span className="group-hover:text-neutral-300">Instagram</span>
-          </Link>
-          <Link
-            href="https://www.youtube.com/@ad10079"
-            target="_blank"
-            rel="noopener"
-            className="flex gap-2 items-center group"
-          >
-            <SiYoutube
-              size={32}
-              className="transition-opacity duration-300 ease-in-out hover:opacity-100 text-[#ff0000] group-hover:text-[#e60000]"
-            />
-            <span className="group-hover:text-neutral-300">YouTube</span>
-          </Link>
+      <div className="flex mx-auto max-w-280 gap-18 px-16 max-[900px]:px-6 max-[900px]:flex-col max-[900px]:gap-8 max-[900px]:text-center">
+        <div className="shrink">
+          <h4 className="text-hero-subtitle text-lg font-heading">
+            ArrowDynamics
+          </h4>
+          <p className="font-medium text-hero-subtitle mb-4">
+            FIRST Robotics Competition Team 10079
+          </p>
+          <p className="text-sm opacity-70">
+            The robotics club of Bothell High School, proudly competing in the
+            FIRST Pacific Northwest District.
+          </p>
         </div>
-        <p className="text-sm opacity-70">
-          &copy; 2026 Team 10079 Robotics | Contact:{" "}
+        <div>
+          <h5 className="text-hero-subtitle uppercase font-semibold tracking-wider mb-4">
+            Find Us
+          </h5>
+          <address>
+            <Link
+              href="https://maps.app.goo.gl/sRpLriAJfRsxKz1f8"
+              target="_blank"
+              rel="noopener"
+              className="text-sm hover:underline not-italic text-nowrap"
+            >
+              Bothell High School
+              <br />
+              Bothell, WA 98011
+            </Link>
+          </address>
+        </div>
+        <div>
+          <h5 className="text-hero-subtitle uppercase font-semibold tracking-wider mb-4">
+            Connect
+          </h5>
           <Link
             href="mailto:roboticsbothell@gmail.com"
-            className="no-underline hover:underline"
+            className="no-underline hover:underline text-sm"
           >
             roboticsbothell@gmail.com
           </Link>
-        </p>
+          <div className="flex mt-4 gap-4 max-[900px]:flex max-[900px]:justify-center">
+            <Link
+              href="https://www.instagram.com/arrowdynamics10079/"
+              target="_blank"
+              rel="noopener"
+              className="size-10 flex justify-center items-center border bg-near-black border-border-color rounded-full p-2.5 hover:-translate-y-0.5 hover:border-accent-blue transition duration-300"
+            >
+              <SiInstagram />
+            </Link>
+            <Link
+              href="https://www.youtube.com/@ad10079"
+              target="_blank"
+              rel="noopener"
+              className="size-10 flex justify-center items-center border bg-near-black border-border-color rounded-full p-2.5 hover:-translate-y-0.5 hover:border-accent-blue transition duration-300"
+            >
+              <SiYoutube />
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   );

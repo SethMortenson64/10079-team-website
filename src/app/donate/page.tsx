@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type React from "react";
-import { Button, Title2 } from "@/components";
+import { AltTitle, AltTitleSection, Button } from "@/components";
 
 export const metadata: Metadata = {
   title: "Donate",
@@ -8,11 +8,11 @@ export const metadata: Metadata = {
 
 export default function Donate() {
   return (
-    <>
-      <Title2
-        title="Donate!"
-        subtitle="Donate to FIRST Washington in support of BHS ArrowDynamics"
-      />
+    <div className="max-w-300 px-16 max-[900px]:px-6 w-full">
+      <AltTitleSection>
+        <AltTitle>Donate!</AltTitle>
+        <p>Donate to FIRST Washington in support of BHS ArrowDynamics</p>
+      </AltTitleSection>
       <Donation title="Donate Through FIRST Washington">
         <DonationInstructions>
           You can use the button below to donate to Team 10079's booster
@@ -80,7 +80,7 @@ export default function Donate() {
           $2.95, which is added to your donation before checkout.
         </p>
       </Donation>
-    </>
+    </div>
   );
 }
 
@@ -94,7 +94,7 @@ function Donation({
   return (
     <section className="pt-4 px-8 pb-16 max-w-300 mx-auto flex justify-center items-center">
       <div className="text-center p-12 bg-near-black border border-border-color rounded-xl">
-        <h2 className="font-heading text-4xl font-extrabold mb-4">{title}</h2>
+        <h2 className="text-4xl font-extrabold mb-4">{title}</h2>
         {children}
       </div>
     </section>

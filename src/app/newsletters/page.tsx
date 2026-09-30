@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Title2 } from "@/components";
+import { AltTitle, AltTitleSection } from "@/components";
 
 export const metadata: Metadata = {
   title: "Newsletters",
@@ -8,11 +8,11 @@ export const metadata: Metadata = {
 
 export default function Newsletters() {
   return (
-    <>
-      <Title2
-        title="Team Newsletters"
-        subtitle="Updates for families, mentors, sponsors, and supporters."
-      />
+    <div className="max-w-300 px-16 max-[900px]:px-6 w-full">
+      <AltTitleSection>
+        <AltTitle>Team Newsletters</AltTitle>
+        <p>Updates for families, mentors, sponsors, and supporters.</p>
+      </AltTitleSection>
       <section className="pt-4 px-8 pb-16 max-w-300 mx-auto max-[700px]:pb-12 max-[700px]:px-4">
         <div className="bg-near-black border border-border-color rounded-xl p-9 max-[700px]:p-6">
           <h2 className="font-heading text-3xl font-extrabold">
@@ -38,7 +38,7 @@ export default function Newsletters() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 
@@ -49,7 +49,7 @@ function Newsletter({ title, url }: { title: string; url: string }) {
       <Link
         href={url}
         target="_blank"
-        className="inline-block py-2.5 px-3.5 rounded-lg no-underline font-bold border border-border-color bg-[#ffffff0a] transition-all duration-200 ease-in-out mb-3.5 hover:-translate-y-0.5 hover:border-accent-blue"
+        className="inline-block py-2.5 px-3.5 rounded-lg no-underline font-bold border border-border-color bg-[#ffffff0a] transition duration-200 mb-3.5 hover:-translate-y-0.5 hover:border-accent-blue"
       >
         Open PDF
       </Link>

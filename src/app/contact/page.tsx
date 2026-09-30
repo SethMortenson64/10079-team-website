@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 
 export default function Contact() {
   const titleClass =
-    "font-heading text-3xl mb-8 pb-4 border-b border-border-color font-medium";
+    "text-3xl mb-8 pb-4 border-b border-border-color font-semibold";
 
   return (
-    <>
+    <div className="max-w-300 px-16 max-[900px]:px-6 w-full">
       <section className="my-8">
         <h1 className="font-heading text-3xl font-bold">Get in Touch</h1>
         <p>
@@ -23,12 +23,14 @@ export default function Contact() {
       <div className="grid grid-cols-[1fr_2fr] max-[900px]:grid-cols-[1fr] gap-12">
         <div className="bg-near-black border-border-color rounded-xl p-8">
           <h3 className={titleClass}>Contact Information</h3>
-          <InfoItem title="General Inquiries">
+          <InfoItem>
+            <InfoItemTitle>General Inquiries</InfoItemTitle>
             <p className="text-neutral-400 leading-relaxed">
               roboticsbothell@gmail.com
             </p>
           </InfoItem>
-          <InfoItem title="Our Advisors">
+          <InfoItem>
+            <InfoItemTitle>Our Advisors</InfoItemTitle>
             <Advisor
               name="Mr. Finney"
               uRole="Lead Mentor"
@@ -40,14 +42,16 @@ export default function Contact() {
               email="cdevidal@nsd.org"
             />
           </InfoItem>
-          <InfoItem title="Our Location">
+          <InfoItem>
+            <InfoItemTitle>Our Location</InfoItemTitle>
             <p className="text-neutral-400 leading-relaxed">
               9130 NE 180th Street
               <br />
               Bothell, WA 98011
             </p>
           </InfoItem>
-          <InfoItem title="Follow Us">
+          <InfoItem>
+            <InfoItemTitle>Follow Us</InfoItemTitle>
             <Link
               href="https://www.instagram.com/arrowdynamics10079/?hl=en"
               className="block w-max text-accent-blue no-underline font-medium hover:underline"
@@ -89,23 +93,16 @@ export default function Contact() {
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-    </>
+    </div>
   );
 }
 
-function InfoItem({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="mb-6 space-x-2 space-y-2">
-      <strong className="block font-semibold mb-2">{title}</strong>
-      {children}
-    </div>
-  );
+function InfoItem({ children }: { children: React.ReactNode }) {
+  return <div className="mb-6 space-x-2 space-y-2">{children}</div>;
+}
+
+function InfoItemTitle({ children }: { children: React.ReactNode }) {
+  return <strong className="block font-semibold mb-2">{children}</strong>;
 }
 
 function Advisor({
@@ -118,7 +115,7 @@ function Advisor({
   email: string;
 }) {
   return (
-    <div className="rounded-xl bg-neutral-900 border-2 border-border-color py-1 px-2 inline-block text-sm transition-transform duration-300 ease-in-out hover:-translate-y-0.5">
+    <div className="rounded-xl bg-neutral-900 border-2 border-border-color py-1 px-2 inline-block text-sm transition-transform duration-300 hover:-translate-y-0.5">
       {name}
       <br />
       <span className="text-xs">

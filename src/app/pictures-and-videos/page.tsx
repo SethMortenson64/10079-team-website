@@ -58,12 +58,12 @@ const COMPETITIONS: Media[] = [
 
 export default function VisualMedia() {
   return (
-    <>
-      <h1 className="text-5xl font-heading font-medium mt-12 text-center">
+    <div className="max-w-300 px-16 max-[900px]:px-6 w-full">
+      <h1 className="text-5xl font-heading mt-12 text-center">
         Pictures & Videos
       </h1>
       <section className="bg-near-black mt-12 rounded-2xl shadow-xl p-12 max-[900px]:p-8">
-        <h1 className="text-3xl font-bold mb-6">Designing the Robot</h1>
+        <h1 className="text-3xl font-heading mb-6">Designing the Robot</h1>
         <Masonry
           items={ROBOT_DESIGN}
           columnWidth={240}
@@ -73,7 +73,7 @@ export default function VisualMedia() {
         />
       </section>
       <section className="bg-near-black mt-12 rounded-2xl shadow-xl p-12 max-[900px]:p-8">
-        <h1 className="text-3xl font-bold mb-6">Competitions</h1>
+        <h1 className="text-3xl font-heading mb-6">Competitions</h1>
         <Masonry
           items={COMPETITIONS}
           columnWidth={240}
@@ -82,7 +82,7 @@ export default function VisualMedia() {
           render={Media}
         />
       </section>
-    </>
+    </div>
   );
 }
 

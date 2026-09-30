@@ -5,19 +5,16 @@ import { useId, useState } from "react";
 
 export default function NavBar() {
   const spanClass =
-    "block h-0.5 w-full bg-foreground rounded-xs transition-all duration-300 ease-in-out";
+    "block h-0.5 w-full bg-foreground rounded-xs transition duration-300";
 
   const [mobileMenuActive, setMobileMenuActive] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   return (
-    <header className="bg-near-black py-5 border-b border-border-color z-100 sticky top-0 shadow-lg">
+    <header className="bg-near-black py-4 border-b border-border-color z-100 sticky top-0 shadow-lg">
       <div className="flex justify-between items-center max-w-300 mx-auto px-16 max-[900px]:px-6 max-[900px]:flex-col max-[900px]:gap-6 max-[900px]:relative max-[900px]:py-2">
         <div>
-          <Link
-            href="/"
-            className="font-heading text-accent-blue text-5xl animate-pulse"
-          >
+          <Link href="/" className="font-heading text-accent-blue text-5xl">
             10079
           </Link>
         </div>
@@ -45,7 +42,8 @@ export default function NavBar() {
             setActiveDropdown={setActiveDropdown}
           >
             <NavChild title="Our Team" url="/team" />
-            <NavChild title="Calendar & Schedule" url="/calendar" />
+            <NavChild title="Calendar" url="/calendar" />
+            <NavChild title="Impact" url="/impact" />
           </NavItem>
           <NavItem title="Sponsors" url="/sponsors" />
           <NavItem title="About FIRST®" url="/about-first" />
@@ -73,7 +71,7 @@ export default function NavBar() {
 }
 
 const navAnchorClass =
-  "no-underline font-medium relative opacity-80 transition-opacity duration-300 ease-in-out hover:opacity-100 nav-anchor";
+  "no-underline font-medium relative opacity-80 transition-opacity duration-300 hover:opacity-100 nav-anchor";
 
 const navItemClass =
   "max-[900px]:w-full max-[900px]:text-center max-[900px]:py-4 max-[900px]:border-b max-[900px]:border-[#ffffff0d] last:border-b-0";
@@ -99,7 +97,7 @@ function NavItem(
       <div className={`relative inline-block group ${navItemClass}`}>
         <button
           type="button"
-          className={`bg-transparent py-2 px-1 font-medium border-none cursor-pointer opacity-80 transition-all duration-300 ease-in-out nav-dropdown-btn group-hover:opacity-100 group-hover:text-accent-blue max-[900px]:w-full max-[900px]:justify-center ${id === props.activeDropdown ? "block" : "flex items-center gap-2"}`}
+          className={`bg-transparent py-2 px-1 font-medium border-none cursor-pointer opacity-80 transition duration-300 nav-dropdown-btn group-hover:opacity-100 group-hover:text-accent-blue max-[900px]:w-full max-[900px]:justify-center ${id === props.activeDropdown ? "block" : "flex items-center gap-2"}`}
           onClick={(e) => {
             if (window.innerWidth <= 900) {
               e.preventDefault();

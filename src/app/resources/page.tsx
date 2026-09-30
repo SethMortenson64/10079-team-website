@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
-import { Title } from "@/components";
+import { Title, TitleSection } from "@/components";
 import logoGithub from "@/img/logo-github.png";
 import placeholder from "@/img/placeholder.png";
 
@@ -11,8 +11,11 @@ export const metadata: Metadata = {
 
 export default function Resources() {
   return (
-    <>
-      <Title title="Resources" subtitle="Find more links!" />
+    <div className="max-w-300 px-16 max-[900px]:px-6 w-full">
+      <TitleSection>
+        <Title>Resources</Title>
+        <p>Find more links!</p>
+      </TitleSection>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(18.75rem,1fr))] gap-8 pt-8 pb-16">
         <Resource
           title="Our GitHub Organization"
@@ -43,7 +46,7 @@ export default function Resources() {
           img={placeholder}
         />
       </div>
-    </>
+    </div>
   );
 }
 
@@ -65,7 +68,7 @@ function Resource({
       href={url}
       target="_blank"
       rel="noopener"
-      className="bg-near-black border border-border-color rounded-xl p-8 no-underline flex flex-col gap-4 transition-all duration-300 ease-in-out items-center text-center hover:-translate-y-2 hover:shadow-2xl hover:border-accent-blue"
+      className="bg-near-black border border-border-color rounded-xl p-8 no-underline flex flex-col gap-4 transition duration-300 items-center text-center hover:-translate-y-2 hover:shadow-2xl hover:border-accent-blue"
     >
       <Image
         src={img}

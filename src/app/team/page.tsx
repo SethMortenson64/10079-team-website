@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Team() {
   return (
-    <>
+    <div className="max-w-300 px-16 max-[900px]:px-6 w-full">
       <section className="text-center pt-16 px-8 pb-8">
         <h1 className="font-heading text-6xl font-bold">Meet the Team</h1>
         <p className="text-neutral-300 max-w-none text-xl">
@@ -70,7 +70,7 @@ export default function Team() {
             email="kfinney@nsd.org"
           />
           <Member
-            name="Mrs. deVidal"
+            name="Chris deVidal"
             uRole="Co-Lead Mentor"
             email="cdevidal@nsd.org"
           />
@@ -81,7 +81,7 @@ export default function Team() {
           <Member name="Debra Tan" uRole="Outreach mentor" />
         </MemberGroup>
       </section>
-    </>
+    </div>
   );
 }
 

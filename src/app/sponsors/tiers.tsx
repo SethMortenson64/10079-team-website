@@ -335,7 +335,7 @@ function Sponsor({ data }: { data: Sponsor }) {
       <Image
         src={data.img}
         alt={data.name}
-        className={`transition-transform duration-300 ease-in-out hover:-translate-y-0.5 ${data.whiteBg ? "bg-white rounded-md" : ""}`}
+        className={`transition-transform duration-300 hover:-translate-y-0.5 ${data.whiteBg ? "bg-white rounded-md" : ""}`}
       />
     </Link>
   );

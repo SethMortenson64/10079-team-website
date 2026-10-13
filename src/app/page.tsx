@@ -183,14 +183,17 @@ function SponsorUsSection() {
       <h3 className="font-heading text-4xl">Support our Team!</h3>
       <p className="opacity-80">
         Donations and sponsorships keep ArrowDynamics building. Every donation
-        through FIRST Washington is tax-deductible.
+        through FIRST® Washington is tax-deductible.
       </p>
       <div className="flex gap-6">
         <Button className="bg-green-500!">Donate</Button>
-        <Button className="bg-green-500!">Become a Sponsor</Button>
+        <Button>Become a Sponsor</Button>
       </div>
       <p className="opacity-80">
-        Questions? Reach us at roboticsbothell@gmail.com
+        Questions? Reach us at{" "}
+        <a href="mailto:roboticsbothell@gmail.com" className="hover:underline">
+          roboticsbothell@gmail.com
+        </a>
       </p>
     </section>
   );
